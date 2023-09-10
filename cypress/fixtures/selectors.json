@@ -1,0 +1,13 @@
+{
+    "navDay": ".page-nav__day",
+    "navDayNumber": ".page-nav__day-number",
+    "seancesTime": ".movie-seances__time",
+    "inputEmail": "[type='email']",
+    "inputPass": "[type='password']",
+    "loginButton": ".login__button",
+    "subtitle": ".page-header__subtitle",
+    "tomorrow": "a.page-nav__day:nth-of-type(2)",
+    "adminMovie": ".conf-step__seances-movie-title",
+    "bookMovie": ".movie__title",
+    "seat": ".buying-scheme__wrapper > :nth-child(6) > :nth-child(3)"
+}
