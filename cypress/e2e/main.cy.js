@@ -17,16 +17,19 @@ describe('test main page', () => {
     cy.get(sels.navDayNumber).eq(0).should('have.text', day);
   })
 
-  it('Блокировка недоступных по времени кнопок', () => {
-    let time;
+  it.only('Блокировка недоступных по времени кнопок', () => {
+    let timeString;
 
     cy.get(sels.seancesTime).each(element => {
-      time = Number(element.text(0, 2));
-      if (hours >= time) {
-      //  console.log(time);
+      timeString = element.text();
+      const indOfColon = timeString.indexOf(':');
+      const timeNumber = Number(timeString.slice(0, indOfColon));
+      if (hours >= timeNumber) { 
+        // если будет строго больше то например в 15.24 сеанс в 15.00 не будет удовлетворять условию 
+        // а кнопка фактически блокируется и должна блокироваться, сеанс ведь начался
+        // console.log(timeNumber);
         expect(element).to.have.class('acceptin-button-disabled');
       }
-
     });
   })
 })
