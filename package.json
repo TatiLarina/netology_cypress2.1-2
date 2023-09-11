@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run"
+    "test": "npx cypress run --record --key 05efd9e6-ac01-43b7-9a1d-6d31fbd1b326",
+    "cy:spec1": "cypress run --spec 'cypress/e2e/admin.cy.js' --record --key 05efd9e6-ac01-43b7-9a1d-6d31fbd1b326",
+    "cy:spec2": "cypress run --spec 'cypress/e2e/main.cy.js' --record --key 05efd9e6-ac01-43b7-9a1d-6d31fbd1b326",
+    "cy:spec3": "cypress run --spec 'cypress/e2e/bookingMovie.cy.js' --record --key 05efd9e6-ac01-43b7-9a1d-6d31fbd1b326",
+    "cy:parallel": "npm run cy:spec1 -- --browser chrome --group Spec1 --ci-build-id 1 & npm run cy:spec2 -- --browser chrome --group Spec2 --ci-build-id 1"
   },
   "author": "",
   "license": "ISC",
