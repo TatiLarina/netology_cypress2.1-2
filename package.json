@@ -4,10 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run --record --key 05efd9e6-ac01-43b7-9a1d-6d31fbd1b326",
-    "cy:spec1": "cypress run --record --group spec1 --spec \"cypress/e2e/bookingMovie.cy.js\" --ci-build-id 12",
-    "cy:spec2": "cypress run --record --group spec2 --spec \"cypress/e2e/main.cy.js,cypress/e2e/admin.cy.js\" --ci-build-id 12",
-    "cy:parallel": "run-p -c cy:spec1 cy:spec2"
+    "test": "npx cypress run --record",
+    "cy:spec1": "cypress run --record --group spec1 --spec \"cypress/e2e/bookingMovie.cy.js\" --ci-build-id 20",
+    "cy:spec2": "cypress run --record --group spec2 --spec \"cypress/e2e/main.cy.js,cypress/e2e/admin.cy.js\" --ci-build-id 20",
+    "cy:parallel": "run-p -c cy:spec1 cy:spec2",
+
+    "test:sp1:chrome": "cypress run --record --group spec1 --spec \"cypress/e2e/admin_test/*\" -b chrome",
+    "test:sp1:edge": "cypress run --record --group spec1 --spec \"cypress/e2e/admin_test/*\" -b edge",
+    "test:sp1:electron": "cypress run --record --group spec1 --spec \"cypress/e2e/admin_test/*\" -b electron",
+
+    "test:sp2:chrome": "cypress run --record --group spec2 --spec \"cypress/e2e/page_test/*\" -b chrome",
+    "test:sp2:edge": "cypress run --record --group spec2 --spec \"cypress/e2e/page_test/*\" -b edge",
+    "test:sp2:electron": "cypress run --record --group spec2 --spec \"cypress/e2e/page_test/*\" -b electron",
+    
+    "test:parallel:2browsers": "run-p -c test:sp1:chrome test:sp2:edge",
+    "test:parallel:chrome": "run-p -c test:sp1:chrome test:sp2:chrome",
+    "test:parallel:edge": "run-p -c test:sp1:edge test:sp2:edge",
+    "test:parallel:electron": "run-p -c test:sp1:electron test:sp2:electron"
   },
   "author": "",
   "license": "ISC",
