@@ -17,7 +17,7 @@ describe('test main page', () => {
     cy.get(sels.navDayNumber).eq(0).should('have.text', day);
   })
 
-  it.only('Блокировка недоступных по времени кнопок', () => {
+  it('Блокировка недоступных по времени кнопок', () => {
     let timeString;
 
     cy.get(sels.seancesTime).each(element => {
